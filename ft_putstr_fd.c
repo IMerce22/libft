@@ -1,56 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 16:52:36 by insoares          #+#    #+#             */
-/*   Updated: 2024/04/22 17:35:25 by insoares         ###   ########.fr       */
+/*   Created: 2024/04/21 17:13:00 by insoares          #+#    #+#             */
+/*   Updated: 2024/04/22 17:31:36 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 /* #include <stdio.h>
-#include <string.h> */
+#include <unistd.h> */
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-	char	*d;
-	char	*s;
+	int	i;
 
-	d = (char *)dest;
-	s = (char *)src;
-	if (!s && !d)
-		return (NULL);
 	i = 0;
-	if (d > s)
+	while (s[i] != '\0')
 	{
-		while (n-- > 0)
-		{
-			d[n] = s[n];
-		}
+		write(fd, &s[i], 1);
+		i++;
 	}
-	else
-	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
-	return (d);
 }
-
 /* int	main(void)
 {
-	const char	src[] = "Mundo";
-	char	dest[] = "Ola";
-	size_t	n;
-
-	n = 3;
-	printf("%s\n", (char *)ft_memmove(dest, src, n));
-	printf("%s", (char *)memmove(dest, src, n));
+	char	s[] = "Ola mundo!";
+	
+	ft_putstr_fd(s, 1);
 	return (0);
 } */

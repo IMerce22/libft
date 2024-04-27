@@ -6,7 +6,7 @@
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:55:42 by insoares          #+#    #+#             */
-/*   Updated: 2024/04/20 18:41:25 by insoares         ###   ########.fr       */
+/*   Updated: 2024/04/27 18:18:53 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+
+typedef struct s_list
+{
+    void            *content;
+    struct s_list   *next;
+}   t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -45,5 +51,23 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 char 	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+char	*ft_itoa(int n);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_putendl_fd(char *s, int fd);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	**ft_split(char const *s, char c);
+
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 #endif

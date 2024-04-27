@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 10:42:17 by insoares          #+#    #+#             */
-/*   Updated: 2024/04/22 15:33:27 by insoares         ###   ########.fr       */
+/*   Created: 2024/04/25 18:51:32 by insoares          #+#    #+#             */
+/*   Updated: 2024/04/25 19:00:40 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	*ft_calloc(size_t count, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	char	*str;
-	size_t	space;
+	int	i;
 
-	if ((count > 2147483647 && n != 0)
-		|| (count != 0 && n > 2147483647))
-		return (NULL);
-	space = count * n;
-	str = malloc(space);
-	if (!str)
-		return (NULL);
-	ft_bzero(str, space);
-	return (str);
+	i = 0;
+	while (lst)
+	{
+		lst = lst ->next;
+		i++;
+	}
+	return (i);
 }
-/* int	main(void)
-{
-	ft_calloc(5, 0);
-	printf("%d", (int *)ft_calloc);
-	calloc (5, 0);
-	printf("%d", calloc);
-	return(0);
-} */

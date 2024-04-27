@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: insoares <insoares@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 10:42:17 by insoares          #+#    #+#             */
-/*   Updated: 2024/04/22 15:33:27 by insoares         ###   ########.fr       */
+/*   Created: 2024/04/21 17:03:11 by insoares          #+#    #+#             */
+/*   Updated: 2024/04/21 17:08:59 by insoares         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+/* #include <stdio.h>
+#include <unistd.h> */
 
-void	*ft_calloc(size_t count, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*str;
-	size_t	space;
-
-	if ((count > 2147483647 && n != 0)
-		|| (count != 0 && n > 2147483647))
-		return (NULL);
-	space = count * n;
-	str = malloc(space);
-	if (!str)
-		return (NULL);
-	ft_bzero(str, space);
-	return (str);
+	write(fd, &c, 1);
 }
 /* int	main(void)
 {
-	ft_calloc(5, 0);
-	printf("%d", (int *)ft_calloc);
-	calloc (5, 0);
-	printf("%d", calloc);
-	return(0);
+	ft_putchar_fd('I', 1);
+	return (0);
 } */
